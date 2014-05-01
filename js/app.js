@@ -16,6 +16,7 @@ $(document).ready(function(){
     count = 0;
     displayCount(count);
     mysteryNum = numGen();
+    $("#guessList").empty();
     $("#feedback").text("Make your guess!");
   }
 
@@ -85,6 +86,7 @@ $(document).ready(function(){
         count++;
         displayCount(count);
         checkNumber(Math.abs(userGuess - mysteryNum));
+        $(this).closest(".game").find("#guessList").append("<li>" + userGuess + "</li>");
       }
     } else {
       $("#feedback").text("You already got it!!!");
